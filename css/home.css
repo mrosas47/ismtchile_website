@@ -1,0 +1,167 @@
+html {
+    font-family: 'Futura Lt Bt', 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    background-image: url(https://drive.google.com/uc?export=view&id=194Kd_tXrjIKnA07R9yyIqb6PeHwZOer1);
+    color: snow;
+    background-attachment: fixed;
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: center center;
+}
+
+header {
+    vertical-align: middle;
+}
+
+#logos {
+    margin-left: auto;
+    margin-right: auto;
+    display: block;
+    max-width: 90%;
+    max-height: 100%;
+    text-align: center;
+}
+
+h1 {
+    display: block;
+    font-size: 4em; 
+    text-align: center;
+}
+
+a {
+    text-decoration: none;
+    color: aquamarine;
+}
+
+body {
+    width: 65%;
+    text-align: justify;
+    display: inline-block;
+    margin-left: 17.5%;
+    margin-right: 17.5%;
+}
+
+code {
+    font-family: 'Lucida Console', monospace;
+    font-size: .85em;
+}
+
+pre {
+    margin-left: auto;
+    margin-right: auto;
+    background-color: #999;
+    border: 1px solid #eee;
+    display: flex;
+    padding: 20px;
+    color: black;
+    width: 95%;
+}
+
+#content {
+    background-color: rgba(102, 102, 102, .85);
+    background-clip: padding-box;
+    padding-left: 10px;
+    padding-right: 10px;
+    padding-bottom: 15px;
+    padding-top: 1px;
+    border-radius: 30px;
+}
+
+h4 {
+    margin-left: 1%;
+}
+
+.people {
+    margin-left: 2%;
+}
+
+#pdf {
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+#xlsx {
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.embed-container {
+    position: relative; 
+    padding-bottom: 80%; 
+    height: 0; 
+    max-width: 95%;
+    margin-left: auto;
+    margin-right: auto;
+} 
+
+.embed-container iframe, .embed-container object, .embed-container iframe {
+    position: absolute; 
+    top: 0; 
+    left: 0; 
+    width: 100%; 
+    height: 100%;
+} 
+
+small {
+    position: absolute; 
+    z-index: 40; 
+    bottom: 0; 
+    margin-bottom: -15px;
+}
+
+.downloads {
+    text-align: center;
+}
+
+.downloads h3 {
+    text-align: justify;
+}
+
+.btn {
+    background-color: #3859a4;
+    border: none;
+    color: snow;
+    padding: 5px 10px;
+    cursor: pointer;
+    font-size: 1em;
+    display: inline-block;
+    margin-bottom: 15px;
+    border-radius: 5px;
+}
+
+.btn:hover {
+    background-color: #7a94d1;
+}
+
+.btn_data {
+    background-color: #1d9696;
+    border: none;
+    color: snow;
+    padding: 5px 10px;
+    cursor: pointer;
+    font-size: 1em;
+    display: inline-block;
+    margin-bottom: 15px;
+    border-radius: 5px;
+}
+
+.btn_data:hover {
+    background-color: #3edada;
+}
+
+.btn_code {
+    background-color: #272a2a;
+    border: none;
+    color: snow;
+    padding: 5px 10px;
+    cursor: pointer;
+    font-size: 1em;
+    display: inline-block;
+    margin-bottom: 15px;
+    border-radius: 5px;
+}
+
+.btn_code:hover {
+    background-color: #565d5d;
+}

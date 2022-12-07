@@ -1,0 +1,306 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="initial-scale=1, maximum-scale=1, user-scalable=no">
+    <title>R package ismtchile::</title>
+    <link rel="stylesheet" href="./css/home.css">
+    <script src="https://js.arcgis.com/4.25/"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+</head>
+<body>
+    <div id="content">
+        <div id="logos">
+            <img src="https://drive.google.com/uc?export=view&id=14Z67_ZlIVG8KcCJXSzW271EYbILOAX6s" alt="logos" id="Logo OCUC, logo DIMES y logo paquete ismtchile::">
+        </div>
+        <h1>R package <code>ismtchile::</code></h1>
+        <p id="presentation">
+            <h3>Presentación</h3>
+            El paquete de R <code>ismtchile::</code> fue ideado con la finalidad de facilitar el cálculo y la distribución del <strong>Índice Socio Material Territorial</strong> (ISMT).
+            El índice fue elaborado por el <a href="http://www.observatoriodeciudades.com" target="_blank">Observatorio de Ciudades UC</a> a partir de variables derivadas de preguntas de los Censos de Población de Chile: <strong>materialidad de la vivienda</strong>, <strong>escolaridad del jefe de hogar</strong>, <strong>hacinamiento</strong> y <strong>allegamiento</strong>. La metodología completa del indicador está disponible <a href="https://ideocuc-ocuc.hub.arcgis.com/datasets/6ed956450cfc4293b7d90df3ce3474e4/about" target="_blank">aquí</a>, y en su mayoría se mantiene intacta, con la excepción de la actualización de los <a href="https://aimchile.cl/gse-chile/" target="_blank">cortes de AIM para los grupos socioeconómicos en su versión 2021</a> y la inclusión de las áreas rurales. Los indicadores descritos en dicho documento derivan de variables del Censo del 2017; sin embargo, para efectos de la distribución e incremento de la usabilidad del ínidce, se replicó el proceso con los censos de 1982, 1992, 2002 y 2012 a través de la literalización y simultánea homologación de las variables de cada <i>database</i>. Esta última característica del paquete se encuentra en desarrollo y estará disponible a partir de la versión <code>2.1.x</code>.
+        </p>
+        <p id="origin">
+            <h3>Origen</h3>
+            La idea de desarrollar este paquete surge de la necesidad de contar con la información del ISMT, ya sea como data o como shapefile, de forma más expedita y sin la obligación de realizar una búsqueda, a veces local y otras en la web. Asimismo, se constató la falta de claridad respecto de la información ya existente y calculada, y su ubicación y última actualización.
+            El paquete soluciona estas necesidades estableciendo un <a href="#flow">flujo de trabajo</a> lineal y fácil de seguir, disponibilizando tanto la data censal de origen que es necesaria para los cálculos, como los shapefiles para espacializar los resultados. Es importante, de todas maneras, señalar que el paquete se encontró con una serie de <a href="#limits">limitaciones</a>.
+        </p>
+        <p id="install">
+            <h3>Descarga e instalación</h3>
+            La primera versión del paquete que se postulará a <a href="https://cran.r-project.org/" target="_blank">CRAN</a> para facilitar la distribución será la versión <code>3.0.0</code>, lo cual no sucederá hasta finales de diciembre del 2022. Versiones anteriores requieren de instalación a través de GitHub, que es posible a través del paquete <code>remotes::</code>.
+            <pre><code id="snippet">remotes::install_github('mrosas47/ismtchile')<br><br>library(ismtchile)</code></pre>
+            El código completo del paquete está disponible en la <a href="https://github.com/mrosas47/ismtchile" target="_blank">página del repositorio en GitHub</a>.
+        </p>
+        <p id="flow">
+            <h3>Flujo de trabajo</h3>
+            El flujo de trabajo del paquete está pensado para satisfacer la mayor cantidad de necesidades del usuario, desde obtener la data y los shapefiles de origen hasta realizar el cálculo del ISMT paso por paso, dando también la opción de omitir el paso a paso y calcular el índice directamente con 1 sola función.
+            La mejor descripción del flujo se encuentra en la <i>cheatsheet</i> del paquete, disponible para descarga <a href="https://drive.google.com/uc?export=download&id=1awWKN_CpW2ixOPK1WKRavpLUmM6TCqHi">aquí</a>. Este documento, además del flujo, contiene la descripción detallada de los parámetros de cada una de las funciones. <br> <br>
+            <iframe src="https://drive.google.com/uc?export=view&id=1tnaj5VjD7PDT8zwhwsN4mmwPIM4NSJkG" id="pdf" width="95%" height="500px" frameborder="0"></iframe><br>
+            Se puede categorizar en flujo en 4 tipos de funciones:
+            <ul id="function_types">
+                <li><strong>Descarga</strong></li>
+                    <ul id="download">
+                        <li><code class="function">load_data()</code> : descarga la base de datos original del Censo 2017 de Chile a <code>path</code> y la carga a RStudio, quedando lista para su uso. Cada llamada a la función descarga un archivo, por lo que se debe usar una vez. Para acceder a los datos posteriormente, ver <code><a href="https://www.rdocumentation.org/packages/utils/versions/3.6.2/topics/read.table" target="_blank">utils::read.csv()</a></code> y <code><a href="https://www.rdocumentation.org/packages/base/versions/3.6.2/topics/readRDS" target="_blank">base::readRDS()</a></code>.</li>
+                        <li><code class="function">load_shp()</code> : descarga ESRI shapefile de la región especificada a <code>path</code> y lo carga a RStudio.</li>
+                        <li><code class="function">spawn_AIMcuts()</code> : función que no recibe parámetros, solo define un <code>data.frame</code> de referencia que contiene los cortes estadísticos AIM por región, actualizados al 2021.</li> <br>
+                        <blockquote>Las funciones de descarga desaparecerán del paquete para las versiones <code>3.x.x</code> para incluir los datasets en el paquete mismo a través de <code><a href="https://www.rdocumentation.org/packages/utils/versions/3.6.2/topics/data" target="_blank">utils::data()</a></code>.</blockquote> 
+                    </ul><br>
+                <li><strong>Preparación</strong></li>
+                    <ul id="prep">
+                        <li><code class="function">literalize()</code> : revierte la factorización de las variables censales, homologando nombres de variables y categorías entre los distintos censos.</li>
+                        <li><code class="function">geofilter()</code> : filtro geográfico por número de región y por tipo de área (urbana o rural).</li>
+                        <li><code class="function">cleanup()</code> : Limpia la base de datos de forma de normalizar los nombres de los campos y reducir la cantidad de variables, facilitando así la ejecución de las funciones que siguen en el flujo de cálculo.</li>
+                    </ul><br>
+                <li><strong>Cálculo</strong></li>
+                    <ul id="calculation">
+                        <li><code class="function">precalc()</code> : ejecuta precálculos necesarios para el resto del proceso del ISMT. Esto consiste en normalizar los indicadores de las variables relevantes, que son resultado de la ejecución de <code>cleanup()</code>.</li>
+                        <li><code class="function">get_pca()</code> : cálculo de análisis de componentes principales en base a las 4 vatriables principales del ISMT. La función asume que la base de datos ha pasado por <code>precalc()</code>, ya que requiere los puntajes normalizados por variable.</li>
+                        <li><code class="function">ismt_scores()</code> : ejecuta los cálculos finales de ISMT, que consisten en categorizar los grupos socioeconómicos en base a los cortes estadísticos AIM y agrupa los resultados por la unidad territorial especificada.</li>
+                        <li><code class="function">full_ismt()</code> : ejecuta el cálculo completo del ISMT. Agrupa las funciones <code>literalize()</code>, <code>geofilter()</code>, <code>cleanup()</code>, <code>precalc()</code>, <code>get_pca()</code> e <code>ismt_scores()</code>. La tabla obtenida debería ser idéntica al resultado de concatenar estas funciones una a una (incluyendo compatibilidad con <a href="https://www.rdocumentation.org/packages/magrittr/versions/2.0.3" target="_blank"><code>magrittr::`%>%`</code></a>). Al incorporar varias funciones, recibe todos los parámetros posibles para la correcta ejecución del flujo.</li>
+                    </ul><br>
+                <li><strong>Exportación</strong></li>
+                    <ul id="export">
+                        <li><code>data_export()</code> : exporta datos resultantes de la ejecución del cálculo del ISMT a la carpeta especificada.</li>
+                        <li><code>geomerge()</code> : espacializa la data obtenida del cálculo del ISMT mediante la unión con un shapefile de la unidad espacial correspondiente.</li>
+                        <li><code>geoexport()</code> : exporta la data espacial derivada del cálculo del ISMT y posterior ejecución de <code>geomerge()</code> para espacializar.</li>
+                    </ul>
+            </ul>
+            Siguiendo la lógica de este flujo, un ejemplo de uso podría verse así: <br> <pre><code># remotes::install_github(mrosas47/ismtchile)<br><br>library(ismtchile)<br><br>censo17 <- load_data(r = 13, path = 'C:/Downloads')<br><br>shp_r13 <- load_shp(r = 13, ur = 1, path = 'C:/Downloads')<br><br>ismt <- full_ismt(censo17, r = 13, ur = 1)<br><br>geodata <- geomerge(df = censo17, shp = shp_r13)<br><br>geoexport(geodata, r = 13, path = 'C:/Downloads')</code></pre>
+        </p>
+        <p id="limits">
+            <h3>Limitaciones</h3>
+            En el proceso de creación del paquete surgieron situaciones que no permitieron desarrollar todas las instancias que se pretendía en un principio, de las cuales se enumerarán las principales.
+            <ul>
+                <li>Indeterminación de la base de datos del 2017 por secreto estadístico.<br>Debido a la política de secreto estadístico adoptada por el INE para la recolección de datos del censo 2017, la base no cuenta con identificadores únicos de manzana, por lo que el menor nivel al que la información está efectivamente disponible es el nivel zona censal.</li>
+                <li>Inexistencia de una base geográfica confiable para el año 1992.<br>A pesar de existir numerosas fuentes de shapefiles de manzanas censales del '92, ninguna de las bases a las que el equipo tuvo acceso cumplió con las características mínimas para ser elegible para su inclusión. Los criterios de exclusión fueron las inconsistencias insalvables en los códigos únicos territoriales, la inexistencia de coberturas de comunas clave (incluyendo la totalidad del Gran Concepción), la ausencia de algunas manzanas en algunas coberturas, y la inconsistencia geométrica con los otros censos (desfase de entre 200 y 500 metros).</li>
+                <li>Inexistencia absoluta de base geográfica para el año 1982.<br>Al no existir cobertura geográfica en formato shapefile para el año 1982 (solo planos escaneados en formato <code>.pdf</code>), resultó imposible espacializar la información para ese año.</li>
+            </ul>
+        </p>
+        <p id="results">
+            <h3>Resultados</h3>
+            A continuación se presentan los resultados del cálculo del ISMT por región. Para el año 2017 se incluyen las zonas urbanas y las localidades rurales, y para los años 2012 y 2002 las manzanas censales. <br> <br>
+            <div class="embed-container">
+                <iframe width="95%" height="750px" frameborder="1" scrolling="no" marginheight="0" marginwidth="0" title="ismt_results" src="https://ocuc.maps.arcgis.com/apps/webappviewer/index.html?id=6ad3e8a569cc4353ac95c037b0e8dff1"></iframe>
+            </div>
+            <br>
+            <br>
+        </p>
+        <p id="metadata">
+            <h3>Metadata</h3>
+            <iframe src="https://drive.google.com/uc?export=view&id=119xxNxAOIOpSnDiLmfjiwhsYRgt1fgvK" width="95%" height="500px" id="xlsx" frameborder="0"></iframe> <br>
+            <!---<iframe src="https://onedrive.live.com/embed?cid=686A6A8F2B4838E8&resid=686A6A8F2B4838E8%21128&authkey=AJBEBY2N_OR8pT4&em=2" width="95%" height="500" frameborder="0" scrolling="yes" id="xlsx"></iframe>--->
+            <a href="https://drive.google.com/uc?export=download&id=1lL_Qg0w6Bbm_ZUYs49F4jkyA0HclziAr"><button class="btn_code">
+                <i class="fa fa-download"></i>
+                 Metadata | <code>.xlsx</code>
+            </button></a> 
+        </p>
+        <div class="downloads">
+            <h3>Descarga de insumos</h3>
+            <button class="btn_code">
+                <i class="fa fa-download"></i>
+                 ISMT por región | <code>.r</code> | 2017
+            </button>
+            <button class="btn_code">
+                <i class="fa fa-download"></i>
+                 ISMT país completo | <code>.r</code> | 2017
+            </button>
+            <button class="btn_code">
+                <i class="fa fa-download"></i>
+                 ISMT por región | <code>.r</code> | 2012
+            </button>
+            <button class="btn_code">
+                <i class="fa fa-download"></i>
+                 ISMT por región | <code>.r</code> | 2002
+            </button>
+            <button class="btn_code">
+                <i class="fa fa-download"></i>
+                 ISMT por región | <code>.r</code> | 1992
+            </button>
+            <button class="btn_code">
+                <i class="fa fa-download"></i>
+                 ISMT por región | <code>.r</code> | 1982
+            </button>
+        </div>
+        <div class="downloads">
+            <a href="https://drive.google.com/uc?export=download&id=1yhNz7SbSQ8w3sK_YkCXrgzUBNSA1KBDL" target="_blank"><button class="btn_data">
+                <i class="fa fa-download"></i>
+                 Data censal | <code>.rds</code> | 2017
+            </button></a>
+            <a href="https://drive.google.com/uc?export=download&id=1laUTi7Yh428GNbcReyZoUmBDwG6w6ZNR" target="_blank"><button class="btn_data">
+                <i class="fa fa-download"></i>
+                 Data censal | <code>.rds</code> | 2012
+            </button></a> 
+            <a href="https://drive.google.com/uc?export=download&id=1OJfO2Bq9zHDxtz_B_3Cm7PA00xe9wvnG" target="_blank"><button class="btn_data">
+                <i class="fa fa-download"></i>
+                 Data censal | <code>.rds</code> | 2002
+            </button></a> 
+            <a href="https://drive.google.com/uc?export=download&id=1pHRqaJJ6lf1EYQ4lsIhbl8yC_vX5jOfX" target="_blank"><button class="btn_data">
+                <i class="fa fa-download"></i>
+                 Data censal | <code>.rds</code> | 1992
+            </button></a> 
+            <a href="https://drive.google.com/uc?export=download&id=1vvl6cG0J21TTKRyn2pr11lKrnZzkz_or" target="_blank"><button class="btn_data">
+                <i class="fa fa-download"></i>
+                 Data censal | <code>.rds</code> | 1982
+            </button></a> 
+            <button class="btn">
+                <i class="fa fa-download"></i>
+                 Cobertura geográfica | <code>.shp</code> | 2017
+            </button>
+            <button class="btn">
+                <i class="fa fa-download"></i>
+                 Cobertura geográfica | <code>.shp</code> | 2012
+            </button>
+            <button class="btn">
+                <i class="fa fa-download"></i>
+                 Cobertura geográfica | <code>.shp</code> | 2002
+            </button>
+            <h3>Descarga de resultados</h3>
+            <button class="btn">
+                <i class="fa fa-download"></i>
+                 Tarapacá | <code>.shp</code> | 2017
+            </button>
+            <button class="btn">
+                <i class="fa fa-download"></i>
+                 Antofagasta | <code>.shp</code> | 2017
+            </button>
+            <button class="btn">
+                <i class="fa fa-download"></i>
+                 Atacama | <code>.shp</code> | 2017
+            </button>
+            <button class="btn">
+                <i class="fa fa-download"></i>
+                 Coquimbo | <code>.shp</code> | 2017
+            </button>
+            <button class="btn">
+                <i class="fa fa-download"></i>
+                 Valparaíso | <code>.shp</code> | 2017
+            </button>
+            <button class="btn">
+                <i class="fa fa-download"></i>
+                 O'Higgins | <code>.shp</code> | 2017
+            </button>
+            <button class="btn">
+                <i class="fa fa-download"></i>
+                 Maule | <code>.shp</code> | 2017
+            </button>
+            <button class="btn">
+                <i class="fa fa-download"></i>
+                 Bío-Bío | <code>.shp</code> | 2017
+            </button>
+            <button class="btn">
+                <i class="fa fa-download"></i>
+                 Araucanía | <code>.shp</code> | 2017
+            </button>
+            <button class="btn">
+                <i class="fa fa-download"></i>
+                 Los Lagos | <code>.shp</code> | 2017
+            </button>
+            <button class="btn">
+                <i class="fa fa-download"></i>
+                 Aysén | <code>.shp</code> | 2017
+            </button>
+            <button class="btn">
+                <i class="fa fa-download"></i>
+                 Magallanes | <code>.shp</code> | 2017
+            </button>
+            <button class="btn">
+                <i class="fa fa-download"></i>
+                 Metropolitana | <code>.shp</code> | 2017
+            </button>
+            <button class="btn">
+                <i class="fa fa-download"></i>
+                 Los Ríos | <code>.shp</code> | 2017
+            </button>
+            <button class="btn">
+                <i class="fa fa-download"></i>
+                 Arica y Parinacota | <code>.shp</code> | 2017
+            </button>
+            <button class="btn">
+                <i class="fa fa-download"></i>
+                 Ñuble | <code>.shp</code> | 2017
+            </button>
+        </div>
+        <div class="downloads">
+            <button class="btn_data">
+                <i class="fa fa-download"></i>
+                 Tarapacá | <code>.csv</code> | 2017
+            </button>
+            <button class="btn_data">
+                <i class="fa fa-download"></i>
+                 Antofagasta | <code>.csv</code> | 2017
+            </button>
+            <button class="btn_data">
+                <i class="fa fa-download"></i>
+                 Atacama | <code>.csv</code> | 2017
+            </button>
+            <button class="btn_data">
+                <i class="fa fa-download"></i>
+                 Coquimbo | <code>.csv</code> | 2017
+            </button>
+            <button class="btn_data">
+                <i class="fa fa-download"></i>
+                 Valparaíso | <code>.csv</code> | 2017
+            </button>
+            <button class="btn_data">
+                <i class="fa fa-download"></i>
+                 O'Higgins | <code>.csv</code> | 2017
+            </button>
+            <button class="btn_data">
+                <i class="fa fa-download"></i>
+                 Maule | <code>.csv</code> | 2017
+            </button>
+            <button class="btn_data">
+                <i class="fa fa-download"></i>
+                 Bío-Bío | <code>.csv</code> | 2017
+            </button>
+            <button class="btn_data">
+                <i class="fa fa-download"></i>
+                 Araucanía | <code>.csv</code> | 2017
+            </button>
+            <button class="btn_data">
+                <i class="fa fa-download"></i>
+                 Los Lagos | <code>.csv</code> | 2017
+            </button>
+            <button class="btn_data">
+                <i class="fa fa-download"></i>
+                 Aysén | <code>.csv</code> | 2017
+            </button>
+            <button class="btn_data">
+                <i class="fa fa-download"></i>
+                 Magallanes | <code>.csv</code> | 2017
+            </button>
+            <button class="btn_data">
+                <i class="fa fa-download"></i>
+                 Metropolitana | <code>.csv</code> | 2017
+            </button>
+            <button class="btn_data">
+                <i class="fa fa-download"></i>
+                 Los Ríos | <code>.csv</code> | 2017
+            </button>
+            <button class="btn_data">
+                <i class="fa fa-download"></i>
+                 Arica y Parinacota | <code>.csv</code> | 2017
+            </button>
+            <button class="btn_data">
+                <i class="fa fa-download"></i>
+                 Ñuble | <code>.csv</code> | 2017
+            </button>
+        </div>
+        <p id="authors">
+            <h3>Autoría y crédito</h3>
+            <h4>Creación, desarrollo y mantención del paquete</h4>
+            <div class="people">
+                <b>Martín Rosas Araya</b> | Estudiante de Planificación Urbana UC, Certificado profesional en Front-End Web Development (W3C). Ayudante de investigación, Observatorio de Ciudades UC | <a href="mailto:mrosas1690@gmail.com">mrosas1690@gmail.com</a> | <a href="mailto:mirosas@uc.cl">mirosas@uc.cl</a>
+            </div>
+            <h4>Creación y desarrollo del índice</h4>
+            <div class="people">
+                <b>Ricardo Truffello Robledo</b> | Geógrafo UC; Doctor en Ingeniería en Sistemas Complejos (Universidad Adolfo Ibáñez - UAI); Magíster en Geografía y Geomática UC. Director, Observatorio de Ciudades UC <br><br>
+                <b>Mónica Flores Castillo</b> | Arquitecta UC y Master of Urban Planning NYU<br><br>
+                <b>Gabriela Ulloa Contador</b> | Geógrafa y Msc. en geografía, mención Justicia Ambiental; Estudiante de Doctorado en Territorio, Espacio y Sociedad de la Universidad de Chile<br><br>
+                <b>Isidro Puig Vásquez</b> | Geógrafo y Analista GIS, Universitat de València (España); Diplomado Programación GIS, Web Mapping y Tecnologías de la Información Geográfica, Asociación Geoinnova, Valencia (España); Diplomado de Especialización en Sostenibilidad, Ética Ecológica y Educación Ambiental, Universitat Politècnica de València (España)<br><br>
+                <b>Natalia Ramírez González</b> | Asesora Ministerial de Género en el Ministerio de Transportes y Telecomunicaciones de Chile; Geógrafa y MA. en Geografía, mención organización urbano-territorial.<br><br>
+                <b>Francisca Balbontin Puig</b> | Diseñadora integral UC; Diseño de plataformas de visualización de datos<br><br>
+                <b>Martín Rosas Araya</b> | Estudiante de Planificación Urbana UC, Certificado profesional en Front-End Web Development (W3C). Ayudante de investigación, Observatorio de Ciudades UC <br><br>
+            </div>
+        </p>
+    </div>
+</body>
