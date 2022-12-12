@@ -6,6 +6,8 @@
     <title>R package ismtchile::</title>
     <link rel="stylesheet" href="./css/home.css">
     <script src="https://js.arcgis.com/4.25/"></script>
+    <!---<script src="./js/slideshow.js"></script>--->
+    <script src="./js/lightbox.js"></script>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
 </head>
 <body>
@@ -35,7 +37,7 @@
             El flujo de trabajo del paquete está pensado para satisfacer la mayor cantidad de necesidades del usuario, desde obtener la data y los shapefiles de origen hasta realizar el cálculo del ISMT paso por paso, dando también la opción de omitir el paso a paso y calcular el índice directamente con 1 sola función.
             La mejor descripción del flujo se encuentra en la <i>cheatsheet</i> del paquete, disponible para descarga <a href="https://drive.google.com/uc?export=download&id=1awWKN_CpW2ixOPK1WKRavpLUmM6TCqHi">aquí</a>. Este documento, además del flujo, contiene la descripción detallada de los parámetros de cada una de las funciones. <br> <br>
             <iframe src="https://drive.google.com/uc?export=view&id=1tnaj5VjD7PDT8zwhwsN4mmwPIM4NSJkG" id="pdf" width="95%" height="500px" frameborder="0"></iframe><br>
-            Se puede categorizar en flujo en 4 tipos de funciones:
+            Se puede categorizar el flujo en 4 tipos de funciones:
             <ul id="function_types">
                 <li><strong>Descarga</strong></li>
                     <ul id="download">
@@ -79,8 +81,98 @@
             <h3>Resultados</h3>
             A continuación se presentan los resultados del cálculo del ISMT por región. Para el año 2017 se incluyen las zonas urbanas y las localidades rurales, y para los años 2012 y 2002 las manzanas censales. <br> <br>
             <div class="embed-container">
-                <iframe width="95%" height="750px" frameborder="1" scrolling="no" marginheight="0" marginwidth="0" title="ismt_results" src="https://ocuc.maps.arcgis.com/apps/webappviewer/index.html?id=6ad3e8a569cc4353ac95c037b0e8dff1"></iframe>
+                <iframe width="95%" height="750px" frameborder="0" scrolling="no" marginheight="0" marginwidth="0" title="ismt_results" src="https://ocuc.maps.arcgis.com/apps/webappviewer/index.html?id=6ad3e8a569cc4353ac95c037b0e8dff1"></iframe>
             </div>
+            <br>
+            <div class="row">
+                <div class="column">
+                  <img src="https://drive.google.com/uc?export=view&id=1W4LT8sbHPxSIIYcczl50HXxAq7Eq2Ptw" onclick="openModal();currentSlide(1)" class="hover-shadow">
+                </div>
+                <div class="column">
+                  <img src="https://drive.google.com/uc?export=view&id=11yEKvtKPa6LHj8xzIYW5BqXrlb0lA76_" onclick="openModal();currentSlide(2)" class="hover-shadow">
+                </div>
+                <div class="column">
+                  <img src="https://drive.google.com/uc?export=view&id=1jeIx7b5Dbwa1ZgvTkyKCpJmatGIsNRpF" onclick="openModal();currentSlide(3)" class="hover-shadow">
+                </div>
+                <div class="column">
+                  <img src="https://drive.google.com/uc?export=view&id=1bX3042sVEoNd74qikTXgDAul0LblfVYE" onclick="openModal();currentSlide(4)" class="hover-shadow">
+                </div>
+            </div>
+            <div id="lightbox" class="modal">
+                <span class="close cursor">&times;</span>
+                <div class="modal_content">
+                    <div class="slides">
+                        <div class="numbertext">1/4</div>
+                        <img src="https://drive.google.com/uc?export=view&id=1W4LT8sbHPxSIIYcczl50HXxAq7Eq2Ptw" alt="sample map 1" style="width:100%">
+                    </div>
+                    <div class="slides">
+                        <div class="numbertext">2/4</div>
+                        <img src="https://drive.google.com/uc?export=view&id=11yEKvtKPa6LHj8xzIYW5BqXrlb0lA76_" alt="sample map 2" style="width:100%">
+                    </div>
+                    <div class="slides">
+                        <div class="numbertext">3/4</div>
+                        <img src="https://drive.google.com/uc?export=view&id=1jeIx7b5Dbwa1ZgvTkyKCpJmatGIsNRpF" alt="sample map 3" style="width:100%">
+                    </div>
+                    <div class="slides">
+                        <div class="numbertext">4/4</div>
+                        <img src="https://drive.google.com/uc?export=view&id=1bX3042sVEoNd74qikTXgDAul0LblfVYE" alt="sample map 4" style="width:100%">
+                    </div>
+                    <a class="prev" onclick="plusSlides(-1)">&#10094;</a>
+                    <a class="next" onclick="plusSlides(1)">&#10095;</a>
+                    <div class="caption-container">
+                        <p id="caption"></p>
+                    </div>
+                    <div class="column">
+                        <img class="demo" src="https://drive.google.com/uc?export=view&id=1W4LT8sbHPxSIIYcczl50HXxAq7Eq2Ptw" onclick="currentSlide(1)" alt="R05">
+                    </div>
+                    <div class="column">
+                        <img class="demo" src="https://drive.google.com/uc?export=view&id=11yEKvtKPa6LHj8xzIYW5BqXrlb0lA76_" onclick="currentSlide(2)" alt="R08">
+                    </div>
+                    <div class="column">
+                        <img class="demo" src="https://drive.google.com/uc?export=view&id=1jeIx7b5Dbwa1ZgvTkyKCpJmatGIsNRpF" onclick="currentSlide(3)" alt="R08">
+                    </div>
+                    <div class="column">
+                        <img class="demo" src="https://drive.google.com/uc?export=view&id=1bX3042sVEoNd74qikTXgDAul0LblfVYE" onclick="currentSlide(4)" alt="R08">
+                    </div>
+                </div>
+            </div>
+            <!---<div id="slideshow_container">
+                <div class="slides fade">
+                    <div class="numbertext">
+                        1/3
+                    </div>
+                    <img src="https://drive.google.com/uc?export=view&id=1W4LT8sbHPxSIIYcczl50HXxAq7Eq2Ptw" alt="sample map 1" style="width: 100%;">
+                    <div class="text">
+                        sample map 1
+                    </div>
+                </div>
+                <div class="slides fade">
+                    <div class="numbertext">
+                        2/3
+                    </div>
+                    <img src="https://drive.google.com/uc?export=view&id=11yEKvtKPa6LHj8xzIYW5BqXrlb0lA76_" alt="sample map 1" style="width: 100%;">
+                    <div class="text">
+                        sample map 2
+                    </div>
+                </div>
+                <div class="slides fade">
+                    <div class="numbertext">
+                        3/3
+                    </div>
+                    <img src="https://drive.google.com/uc?export=view&id=1jeIx7b5Dbwa1ZgvTkyKCpJmatGIsNRpF" alt="sample map 1" style="width: 100%;">
+                    <div class="text">
+                        sample map 3
+                    </div>
+                </div>
+                <a class="prev" onclick="plusSlides(-1)">&#10094;</a>
+                <a class="next" onclick="plusSlides(1)">&#10095;</a>
+                <br>
+                <div style="text-align: center;">
+                    <span class="dot" onclick="currentSlide(1)"></span>
+                    <span class="dot" onclick="currentSlide(2)"></span>
+                    <span class="dot" onclick="currentSlide(3)"></span>
+                </div>
+            </div>--->
             <br>
             <br>
         </p>
