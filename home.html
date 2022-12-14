@@ -9,6 +9,7 @@
     <!---<script src="./js/slideshow.js"></script>--->
     <script src="./js/lightbox.js"></script>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <base target="_blank">
 </head>
 <body>
     <div id="content">
@@ -19,7 +20,7 @@
         <p id="presentation">
             <h3>Presentación</h3>
             El paquete de R <code>ismtchile::</code> fue ideado con la finalidad de facilitar el cálculo y la distribución del <strong>Índice Socio Material Territorial</strong> (ISMT).
-            El índice fue elaborado por el <a href="http://www.observatoriodeciudades.com" target="_blank">Observatorio de Ciudades UC</a> a partir de variables derivadas de preguntas de los Censos de Población de Chile: <strong>materialidad de la vivienda</strong>, <strong>escolaridad del jefe de hogar</strong>, <strong>hacinamiento</strong> y <strong>allegamiento</strong>. La metodología completa del indicador está disponible <a href="https://ideocuc-ocuc.hub.arcgis.com/datasets/6ed956450cfc4293b7d90df3ce3474e4/about" target="_blank">aquí</a>, y en su mayoría se mantiene intacta, con la excepción de la actualización de los <a href="https://aimchile.cl/gse-chile/" target="_blank">cortes de AIM para los grupos socioeconómicos en su versión 2021</a> y la inclusión de las áreas rurales. Los indicadores descritos en dicho documento derivan de variables del Censo del 2017; sin embargo, para efectos de la distribución e incremento de la usabilidad del ínidce, se replicó el proceso con los censos de 1982, 1992, 2002 y 2012 a través de la literalización y simultánea homologación de las variables de cada <i>database</i>. Esta última característica del paquete se encuentra en desarrollo y estará disponible a partir de la versión <code>2.1.x</code>.
+            El índice fue elaborado por el <a href="http://www.observatoriodeciudades.com">Observatorio de Ciudades UC</a> a partir de variables derivadas de preguntas de los Censos de Población de Chile: <strong>materialidad de la vivienda</strong>, <strong>escolaridad del jefe de hogar</strong>, <strong>hacinamiento</strong> y <strong>allegamiento</strong>. La metodología completa del indicador está disponible <a href="https://ideocuc-ocuc.hub.arcgis.com/datasets/6ed956450cfc4293b7d90df3ce3474e4/about">aquí</a>, y en su mayoría se mantiene intacta, con la excepción de la actualización de los <a href="https://aimchile.cl/gse-chile/">cortes de AIM para los grupos socioeconómicos en su versión 2021</a> y la inclusión de las áreas rurales. Los indicadores descritos en dicho documento derivan de variables del Censo del 2017; sin embargo, para efectos de la distribución e incremento de la usabilidad del ínidce, se replicó el proceso con los censos de 1982, 1992, 2002 y 2012 a través de la literalización y simultánea homologación de las variables de cada <i>database</i>. Esta última característica del paquete se encuentra en desarrollo y estará disponible a partir de la versión <code>2.1.x</code>.
         </p>
         <p id="origin">
             <h3>Origen</h3>
@@ -28,9 +29,9 @@
         </p>
         <p id="install">
             <h3>Descarga e instalación</h3>
-            La primera versión del paquete que se postulará a <a href="https://cran.r-project.org/" target="_blank">CRAN</a> para facilitar la distribución será la versión <code>3.0.0</code>, lo cual no sucederá hasta finales de diciembre del 2022. Versiones anteriores requieren de instalación a través de GitHub, que es posible a través del paquete <code>remotes::</code>.
+            La primera versión del paquete que se postulará a <a href="https://cran.r-project.org/">CRAN</a> para facilitar la distribución será la versión <code>3.0.0</code>, lo cual no sucederá hasta finales de diciembre del 2022. Versiones anteriores requieren de instalación a través de GitHub, que es posible a través del paquete <code>remotes::</code>.
             <pre><code id="snippet">remotes::install_github('mrosas47/ismtchile')<br><br>library(ismtchile)</code></pre>
-            El código completo del paquete está disponible en la <a href="https://github.com/mrosas47/ismtchile" target="_blank">página del repositorio en GitHub</a>.
+            El código completo del paquete está disponible en la <a href="https://github.com/mrosas47/ismtchile">página del repositorio en GitHub</a>.
         </p>
         <p id="flow">
             <h3>Flujo de trabajo</h3>
@@ -41,10 +42,10 @@
             <ul id="function_types">
                 <li><strong>Descarga</strong></li>
                     <ul id="download">
-                        <li><code class="function">load_data()</code> : descarga la base de datos original del Censo 2017 de Chile a <code>path</code> y la carga a RStudio, quedando lista para su uso. Cada llamada a la función descarga un archivo, por lo que se debe usar una vez. Para acceder a los datos posteriormente, ver <code><a href="https://www.rdocumentation.org/packages/utils/versions/3.6.2/topics/read.table" target="_blank">utils::read.csv()</a></code> y <code><a href="https://www.rdocumentation.org/packages/base/versions/3.6.2/topics/readRDS" target="_blank">base::readRDS()</a></code>.</li>
+                        <li><code class="function">load_data()</code> : descarga la base de datos original del Censo 2017 de Chile a <code>path</code> y la carga a RStudio, quedando lista para su uso. Cada llamada a la función descarga un archivo, por lo que se debe usar una vez. Para acceder a los datos posteriormente, ver <code><a href="https://www.rdocumentation.org/packages/utils/versions/3.6.2/topics/read.table">utils::read.csv()</a></code> y <code><a href="https://www.rdocumentation.org/packages/base/versions/3.6.2/topics/readRDS">base::readRDS()</a></code>.</li>
                         <li><code class="function">load_shp()</code> : descarga ESRI shapefile de la región especificada a <code>path</code> y lo carga a RStudio.</li>
                         <li><code class="function">spawn_AIMcuts()</code> : función que no recibe parámetros, solo define un <code>data.frame</code> de referencia que contiene los cortes estadísticos AIM por región, actualizados al 2021.</li> <br>
-                        <blockquote>Las funciones de descarga desaparecerán del paquete para las versiones <code>3.x.x</code> para incluir los datasets en el paquete mismo a través de <code><a href="https://www.rdocumentation.org/packages/utils/versions/3.6.2/topics/data" target="_blank">utils::data()</a></code>.</blockquote> 
+                        <blockquote>Las funciones de descarga desaparecerán del paquete para las versiones <code>3.x.x</code> para incluir los datasets en el paquete mismo a través de <code><a href="https://www.rdocumentation.org/packages/utils/versions/3.6.2/topics/data">utils::data()</a></code>.</blockquote> 
                     </ul><br>
                 <li><strong>Preparación</strong></li>
                     <ul id="prep">
@@ -57,7 +58,7 @@
                         <li><code class="function">precalc()</code> : ejecuta precálculos necesarios para el resto del proceso del ISMT. Esto consiste en normalizar los indicadores de las variables relevantes, que son resultado de la ejecución de <code>cleanup()</code>.</li>
                         <li><code class="function">get_pca()</code> : cálculo de análisis de componentes principales en base a las 4 vatriables principales del ISMT. La función asume que la base de datos ha pasado por <code>precalc()</code>, ya que requiere los puntajes normalizados por variable.</li>
                         <li><code class="function">ismt_scores()</code> : ejecuta los cálculos finales de ISMT, que consisten en categorizar los grupos socioeconómicos en base a los cortes estadísticos AIM y agrupa los resultados por la unidad territorial especificada.</li>
-                        <li><code class="function">full_ismt()</code> : ejecuta el cálculo completo del ISMT. Agrupa las funciones <code>literalize()</code>, <code>geofilter()</code>, <code>cleanup()</code>, <code>precalc()</code>, <code>get_pca()</code> e <code>ismt_scores()</code>. La tabla obtenida debería ser idéntica al resultado de concatenar estas funciones una a una (incluyendo compatibilidad con <a href="https://www.rdocumentation.org/packages/magrittr/versions/2.0.3" target="_blank"><code>magrittr::`%>%`</code></a>). Al incorporar varias funciones, recibe todos los parámetros posibles para la correcta ejecución del flujo.</li>
+                        <li><code class="function">full_ismt()</code> : ejecuta el cálculo completo del ISMT. Agrupa las funciones <code>literalize()</code>, <code>geofilter()</code>, <code>cleanup()</code>, <code>precalc()</code>, <code>get_pca()</code> e <code>ismt_scores()</code>. La tabla obtenida debería ser idéntica al resultado de concatenar estas funciones una a una (incluyendo compatibilidad con <a href="https://www.rdocumentation.org/packages/magrittr/versions/2.0.3"><code>magrittr::`%>%`</code></a>). Al incorporar varias funciones, recibe todos los parámetros posibles para la correcta ejecución del flujo.</li>
                     </ul><br>
                 <li><strong>Exportación</strong></li>
                     <ul id="export">
@@ -179,7 +180,7 @@
         <p id="metadata">
             <h3>Metadata</h3>
             A continuación se provee un diccionario de las variables homologadas tras la literalización de las bases de datos. Este documento contiene la definición de cada variable y sus posibles valores, así como la equivalencia entre los distintos censos (1982 a 2017). <br> <br>
-            <a href="https://drive.google.com/uc?export=download&id=1lL_Qg0w6Bbm_ZUYs49F4jkyA0HclziAr" target="_blank"><button class="btn_code">
+            <a href="https://drive.google.com/uc?export=download&id=1lL_Qg0w6Bbm_ZUYs49F4jkyA0HclziAr"><button class="btn_code">
                 <i class="fa fa-download"></i>
                  Metadata | <code>.xlsx</code>
             </button></a>
@@ -188,7 +189,7 @@
         </p>
         <div class="downloads">
             <h3>Descarga de insumos</h3>
-            <a href="https://drive.google.com/uc?export=download&id=1iqQygNJI02SOCj250chR42UcK22ciEo9" target="_blank"><button class="btn_code">
+            <a href="https://drive.google.com/uc?export=download&id=1iqQygNJI02SOCj250chR42UcK22ciEo9"><button class="btn_code">
                 <i class="fa fa-download"></i>
                  ISMT por región | <code>.r</code> | 2017
             </button></a> 
@@ -214,169 +215,169 @@
             </button>
         </div>
         <div class="downloads">
-            <a href="https://drive.google.com/uc?export=download&id=1yhNz7SbSQ8w3sK_YkCXrgzUBNSA1KBDL" target="_blank"><button class="btn_data">
+            <a href="https://drive.google.com/uc?export=download&id=1yhNz7SbSQ8w3sK_YkCXrgzUBNSA1KBDL"><button class="btn_data">
                 <i class="fa fa-download"></i>
                  Data censal | <code>.rds</code> | 2017
             </button></a>
-            <a href="https://drive.google.com/uc?export=download&id=1laUTi7Yh428GNbcReyZoUmBDwG6w6ZNR" target="_blank"><button class="btn_data">
+            <a href="https://drive.google.com/uc?export=download&id=1laUTi7Yh428GNbcReyZoUmBDwG6w6ZNR"><button class="btn_data">
                 <i class="fa fa-download"></i>
                  Data censal | <code>.rds</code> | 2012
             </button></a> 
-            <a href="https://drive.google.com/uc?export=download&id=1OJfO2Bq9zHDxtz_B_3Cm7PA00xe9wvnG" target="_blank"><button class="btn_data">
+            <a href="https://drive.google.com/uc?export=download&id=1OJfO2Bq9zHDxtz_B_3Cm7PA00xe9wvnG"><button class="btn_data">
                 <i class="fa fa-download"></i>
                  Data censal | <code>.rds</code> | 2002
             </button></a> 
-            <a href="https://drive.google.com/uc?export=download&id=1pHRqaJJ6lf1EYQ4lsIhbl8yC_vX5jOfX" target="_blank"><button class="btn_data">
+            <a href="https://drive.google.com/uc?export=download&id=1pHRqaJJ6lf1EYQ4lsIhbl8yC_vX5jOfX"><button class="btn_data">
                 <i class="fa fa-download"></i>
                  Data censal | <code>.rds</code> | 1992
             </button></a> 
-            <a href="https://drive.google.com/uc?export=download&id=1vvl6cG0J21TTKRyn2pr11lKrnZzkz_or" target="_blank"><button class="btn_data">
+            <a href="https://drive.google.com/uc?export=download&id=1vvl6cG0J21TTKRyn2pr11lKrnZzkz_or"><button class="btn_data">
                 <i class="fa fa-download"></i>
                  Data censal | <code>.rds</code> | 1982
             </button></a> 
-            <a href="https://drive.google.com/uc?export=download&id=1x4yau89v98VcDMqwTOx21c4AppKz-dm7" target="_blank"><button class="btn">
+            <a href="https://drive.google.com/uc?export=download&id=1x4yau89v98VcDMqwTOx21c4AppKz-dm7"><button class="btn">
                 <i class="fa fa-download"></i>
                  Cobertura geográfica | <code>.shp</code> | 2017
             </button></a> 
-            <a href="https://drive.google.com/uc?export=download&id=1e74kQdiyWCGSgWFgqlDZPZQfEKxEAHzV" target="_blank"><button class="btn">
+            <a href="https://drive.google.com/uc?export=download&id=1e74kQdiyWCGSgWFgqlDZPZQfEKxEAHzV"><button class="btn">
                 <i class="fa fa-download"></i>
                  Cobertura geográfica | <code>.shp</code> | 2012
             </button></a> 
-            <a href="https://drive.google.com/uc?export=download&id=1zp_4FTAg6YdcBp8jwWTt4sVT3jPCOLOf" target="_blank"><button class="btn">
+            <a href="https://drive.google.com/uc?export=download&id=1zp_4FTAg6YdcBp8jwWTt4sVT3jPCOLOf"><button class="btn">
                 <i class="fa fa-download"></i>
                  Cobertura geográfica | <code>.shp</code> | 2002
             </button></a> 
             <h3>Descarga de resultados</h3>
-            <button class="btn">
+            <a href="https://drive.google.com/uc?export=download&id=1nj7KgaLf6P8YtrLz-KLk6ymuwDlyFgO4"><button class="btn">
                 <i class="fa fa-download"></i>
                  Tarapacá | <code>.shp</code> | 2017
-            </button>
-            <button class="btn">
+            </button></a>
+            <a href="https://drive.google.com/uc?export=download&id=1PFno_zgKu8yswnhIHi0PYRZMJhWM67v7"><button class="btn">
                 <i class="fa fa-download"></i>
                  Antofagasta | <code>.shp</code> | 2017
-            </button>
-            <button class="btn">
+            </button></a> 
+            <a href="https://drive.google.com/uc?export=download&id=1Vp4iRIGkSit53BDdV_C4YMSLw32P7fuf"><button class="btn">
                 <i class="fa fa-download"></i>
                  Atacama | <code>.shp</code> | 2017
-            </button>
-            <button class="btn">
+            </button></a> 
+            <a href="https://drive.google.com/uc?export=download&id=1FTbSMT1BQaJngIfEqb9w7wWifgJbSVFL"><button class="btn">
                 <i class="fa fa-download"></i>
                  Coquimbo | <code>.shp</code> | 2017
-            </button>
-            <button class="btn">
+            </button></a> 
+            <a href="https://drive.google.com/uc?export=download&id=1Drkfm9_qZSVJl6OU3KpSKcuyWgP2pDXr"><button class="btn">
                 <i class="fa fa-download"></i>
                  Valparaíso | <code>.shp</code> | 2017
-            </button>
-            <button class="btn">
+            </button></a> 
+            <a href="https://drive.google.com/uc?export=download&id=11weqtJiqUwQ-vXc1U6bcCU-80RgAGd9M"><button class="btn">
                 <i class="fa fa-download"></i>
                  O'Higgins | <code>.shp</code> | 2017
-            </button>
-            <button class="btn">
+            </button></a> 
+            <a href="https://drive.google.com/uc?export=download&id=1pOn5D3cc7gWv9OjtCF9YMc87Tg7gdPQQ"><button class="btn">
                 <i class="fa fa-download"></i>
                  Maule | <code>.shp</code> | 2017
-            </button>
-            <button class="btn">
+            </button></a> 
+            <a href="https://drive.google.com/uc?export=download&id=1Xx9K0KtiASpM-t_6Hl4vi_zH-nPzPaUt"><button class="btn">
                 <i class="fa fa-download"></i>
                  Bío-Bío | <code>.shp</code> | 2017
-            </button>
-            <button class="btn">
+            </button></a>
+            <a href="https://drive.google.com/uc?export=download&id=1KN_gZfp85slyLWsCSHqR_MUb4V9jAmB0"><button class="btn">
                 <i class="fa fa-download"></i>
                  Araucanía | <code>.shp</code> | 2017
-            </button>
-            <button class="btn">
+            </button></a>
+            <a href="https://drive.google.com/uc?export=download&id=1xZlIXMtA-x-Pl_SkCvq1AOnklgoewriI"><button class="btn">
                 <i class="fa fa-download"></i>
                  Los Lagos | <code>.shp</code> | 2017
-            </button>
-            <button class="btn">
+            </button></a>
+            <a href="https://drive.google.com/uc?export=download&id=16zteNrGrbJrsWZ9oFmaAvIssWZc_lOtA"><button class="btn">
                 <i class="fa fa-download"></i>
                  Aysén | <code>.shp</code> | 2017
-            </button>
-            <button class="btn">
+            </button></a>
+            <a href="https://drive.google.com/uc?export=download&id=10clShgWxWvd_Zu0eW0TON721JmE0fO2q"><button class="btn">
                 <i class="fa fa-download"></i>
                  Magallanes | <code>.shp</code> | 2017
-            </button>
-            <button class="btn">
+            </button></a>
+            <a href="https://drive.google.com/uc?export=download&id=1s_KWDjAjMvXZZqZmq3ZbxA5hIHuSifS4"><button class="btn">
                 <i class="fa fa-download"></i>
                  Metropolitana | <code>.shp</code> | 2017
-            </button>
-            <button class="btn">
+            </button></a>
+            <a href="https://drive.google.com/uc?export=download&id=10QpX9zNcVmlNbII-ypd8xhqeKL_qLLH6"><button class="btn">
                 <i class="fa fa-download"></i>
                  Los Ríos | <code>.shp</code> | 2017
-            </button>
-            <button class="btn">
+            </button></a>
+            <a href="https://drive.google.com/uc?export=download&id=1lKfBJ8rVaFjM2pe0nmERiEkjQOooVO4w"><button class="btn">
                 <i class="fa fa-download"></i>
                  Arica y Parinacota | <code>.shp</code> | 2017
-            </button>
-            <button class="btn">
+            </button></a>
+            <a href="https://drive.google.com/uc?export=download&id=1jUbscDwMiBVUxAe1vi-GVUgtLECvADqT"><button class="btn">
                 <i class="fa fa-download"></i>
                  Ñuble | <code>.shp</code> | 2017
-            </button>
+            </button></a>
         </div>
         <div class="downloads">
-            <button class="btn_data">
+            <a href="https://drive.google.com/uc?export=download&id=1xbAq7XAg6TA3nm_e8Vpspu2lJwh8WnLu"><button class="btn_data">
                 <i class="fa fa-download"></i>
                  Tarapacá | <code>.csv</code> | 2017
-            </button>
-            <button class="btn_data">
+            </button></a>
+            <a href="https://drive.google.com/uc?export=download&id=1BvCTzisuTyRvzfx6JKgfAFt3KZ15FDez"><button class="btn_data">
                 <i class="fa fa-download"></i>
                  Antofagasta | <code>.csv</code> | 2017
-            </button>
-            <button class="btn_data">
+            </button></a>
+            <a href="https://drive.google.com/uc?export=download&id=1QaXw9P5xc-fLi0X_Gy8TCDq3Pq7Om0K0"><button class="btn_data">
                 <i class="fa fa-download"></i>
                  Atacama | <code>.csv</code> | 2017
-            </button>
-            <button class="btn_data">
+            </button></a>
+            <a href="https://drive.google.com/uc?export=download&id=1MsTci1eSLaDvKEumZYaF-fbL9thl319P"><button class="btn_data">
                 <i class="fa fa-download"></i>
                  Coquimbo | <code>.csv</code> | 2017
-            </button>
-            <button class="btn_data">
+            </button></a>
+            <a href="https://drive.google.com/uc?export=download&id=16cPXRCmT0WXbBl3XdLp958UdjOFgdG_V"><button class="btn_data">
                 <i class="fa fa-download"></i>
                  Valparaíso | <code>.csv</code> | 2017
-            </button>
-            <button class="btn_data">
+            </button></a>
+            <a href="https://drive.google.com/uc?export=download&id="><button class="btn_data">
                 <i class="fa fa-download"></i>
                  O'Higgins | <code>.csv</code> | 2017
-            </button>
-            <button class="btn_data">
+            </button></a>
+            <a href="https://drive.google.com/uc?export=download&id="><button class="btn_data">
                 <i class="fa fa-download"></i>
                  Maule | <code>.csv</code> | 2017
-            </button>
-            <button class="btn_data">
+            </button></a>
+            <a href="https://drive.google.com/uc?export=download&id="><button class="btn_data">
                 <i class="fa fa-download"></i>
                  Bío-Bío | <code>.csv</code> | 2017
-            </button>
-            <button class="btn_data">
+            </button></a>
+            <a href="https://drive.google.com/uc?export=download&id="><button class="btn_data">
                 <i class="fa fa-download"></i>
                  Araucanía | <code>.csv</code> | 2017
-            </button>
-            <button class="btn_data">
+            </button></a>
+            <a href="https://drive.google.com/uc?export=download&id="><button class="btn_data">
                 <i class="fa fa-download"></i>
                  Los Lagos | <code>.csv</code> | 2017
-            </button>
-            <button class="btn_data">
+            </button></a>
+            <a href="https://drive.google.com/uc?export=download&id="><button class="btn_data">
                 <i class="fa fa-download"></i>
                  Aysén | <code>.csv</code> | 2017
-            </button>
-            <button class="btn_data">
+            </button></a>
+            <a href="https://drive.google.com/uc?export=download&id="><button class="btn_data">
                 <i class="fa fa-download"></i>
                  Magallanes | <code>.csv</code> | 2017
-            </button>
-            <button class="btn_data">
+            </button></a>
+            <a href="https://drive.google.com/uc?export=download&id="><button class="btn_data">
                 <i class="fa fa-download"></i>
                  Metropolitana | <code>.csv</code> | 2017
-            </button>
-            <button class="btn_data">
+            </button></a>
+            <a href="https://drive.google.com/uc?export=download&id="><button class="btn_data">
                 <i class="fa fa-download"></i>
                  Los Ríos | <code>.csv</code> | 2017
-            </button>
-            <button class="btn_data">
+            </button></a>
+            <a href="https://drive.google.com/uc?export=download&id="><button class="btn_data">
                 <i class="fa fa-download"></i>
                  Arica y Parinacota | <code>.csv</code> | 2017
-            </button>
-            <button class="btn_data">
+            </button></a>
+            <a href="https://drive.google.com/uc?export=download&id="><button class="btn_data">
                 <i class="fa fa-download"></i>
                  Ñuble | <code>.csv</code> | 2017
-            </button>
+            </button></a>
         </div>
         <p id="authors">
             <h3>Autoría y crédito</h3>
