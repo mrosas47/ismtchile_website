@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="initial-scale=1, maximum-scale=1, user-scalable=no">
+    <title>R package ismtchile::</title>
+    <link rel="stylesheet" href="../../css/home.css">
+    <script src="https://js.arcgis.com/4.25/"></script>
+    <!---<script src="./js/slideshow.js"></script>--->
+    <!---<script src="./js/lightbox.js"></script>--->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <script src="../../js/topnav.js"></script>
+    <script src="../../js/clicks.js"></script>
+</head>
+<body>
+    <div id="content">
+        <div id="logos">
+            <img src="https://drive.google.com/uc?export=view&id=14Z67_ZlIVG8KcCJXSzW271EYbILOAX6s" alt="logos" id="Logo OCUC, logo DIMES y logo paquete ismtchile::">
+        </div>
+        <h1>R package <code>ismtchile::</code></h1>
+        <div id="topnav" class="topnav">
+            <a href="presentation.html" target="_self">Presentación</a>
+            <a href="install.html" target="_self"">Instalación</a>
+            <a href="flow.html" target="_self"">Flujo de trabajo</a>
+            <a href="limits.html" target="_self"">Limitaciones</a>
+            <a href="results.html" target="_self"">Resultados</a>
+            <a href="metadata.html" target="_self"">Metadata</a>
+            <a href="downloads.html" target="_self"">Descargas</a>
+            <a href="authors.html" target="_self"">Autoría</a>
+            <a href="javascript:void(0);" class="icon" onclick="myFunction()">
+                <i class="fa fa-bars"></i>
+            </a>
+        </div>
+        <div id="limitsdiv">
+            <p id="limits">
+                <h3>Limitaciones</h3>
+                En el proceso de creación del paquete surgieron situaciones que no permitieron desarrollar todas las instancias que se pretendía en un principio, de las cuales se enumerarán las principales.
+                <ul>
+                    <li>Indeterminación de la base de datos del 2017 por secreto estadístico.<br>Debido a la política de secreto estadístico adoptada por el INE para la recolección de datos del censo 2017, la base no cuenta con identificadores únicos de manzana, por lo que el menor nivel al que la información está efectivamente disponible es el nivel zona censal.</li>
+                    <li>Inexistencia de una base geográfica confiable para el año 1992.<br>A pesar de existir numerosas fuentes de shapefiles de manzanas censales del '92, ninguna de las bases a las que el equipo tuvo acceso cumplió con las características mínimas para ser elegible para su inclusión. Los criterios de exclusión fueron las inconsistencias insalvables en los códigos únicos territoriales, la inexistencia de coberturas de comunas clave (incluyendo la totalidad del Gran Concepción), la ausencia de algunas manzanas en algunas coberturas, y la inconsistencia geométrica con los otros censos (desfase de entre 200 y 500 metros).</li>
+                    <li>Inexistencia absoluta de base geográfica para el año 1982.<br>Al no existir cobertura geográfica en formato shapefile para el año 1982 (solo planos escaneados en formato <code>.pdf</code>), resultó imposible espacializar la información para ese año.</li>
+                </ul>
+            </p>
+        </div>
+    </div>
+</body>

@@ -1,0 +1,223 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="initial-scale=1, maximum-scale=1, user-scalable=no">
+    <title>R package ismtchile::</title>
+    <link rel="stylesheet" href="../../css/home.css">
+    <script src="https://js.arcgis.com/4.25/"></script>
+    <!---<script src="./js/slideshow.js"></script>--->
+    <!---<script src="./js/lightbox.js"></script>--->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <script src="../../js/topnav.js"></script>
+    <script src="../../js/clicks.js"></script>
+</head>
+<body>
+    <div id="content">
+        <div id="logos">
+            <img src="https://drive.google.com/uc?export=view&id=14Z67_ZlIVG8KcCJXSzW271EYbILOAX6s" alt="logos" id="Logo OCUC, logo DIMES y logo paquete ismtchile::">
+        </div>
+        <h1>R package <code>ismtchile::</code></h1>
+        <div id="topnav" class="topnav">
+            <a href="presentation.html" target="_self">Presentación</a>
+            <a href="install.html" target="_self"">Instalación</a>
+            <a href="flow.html" target="_self"">Flujo de trabajo</a>
+            <a href="limits.html" target="_self"">Limitaciones</a>
+            <a href="results.html" target="_self"">Resultados</a>
+            <a href="metadata.html" target="_self"">Metadata</a>
+            <a href="downloads.html" target="_self"">Descargas</a>
+            <a href="authors.html" target="_self"">Autoría</a>
+            <a href="javascript:void(0);" class="icon" onclick="myFunction()">
+                <i class="fa fa-bars"></i>
+            </a>
+        </div>
+        <div class="downloads" id="filesdiv">
+            <h3>Descarga de insumos</h3>
+            <a href="https://drive.google.com/uc?export=download&id=1iqQygNJI02SOCj250chR42UcK22ciEo9" target="_blank"><button class="btn_code">
+                <i class="fa fa-download"></i>
+                 ISMT por región | <code>.r</code> | 2017
+            </button></a> 
+            <!---<button class="btn_code">
+                <i class="fa fa-download"></i>
+                 ISMT país completo | <code>.r</code> | 2017
+            </button>--->
+            <button class="btn_code">
+                <i class="fa fa-download"></i>
+                 ISMT por región | <code>.r</code> | 2012
+            </button>
+            <button class="btn_code">
+                <i class="fa fa-download"></i>
+                 ISMT por región | <code>.r</code> | 2002
+            </button>
+            <button class="btn_code">
+                <i class="fa fa-download"></i>
+                 ISMT por región | <code>.r</code> | 1992
+            </button>
+            <button class="btn_code">
+                <i class="fa fa-download"></i>
+                 ISMT por región | <code>.r</code> | 1982
+            </button>
+            <a href="https://drive.google.com/uc?export=download&id=1yhNz7SbSQ8w3sK_YkCXrgzUBNSA1KBDL" target="_blank"><button class="btn_data">
+                <i class="fa fa-download"></i>
+                 Data censal | <code>.rds</code> | 2017
+            </button></a>
+            <a href="https://drive.google.com/uc?export=download&id=1laUTi7Yh428GNbcReyZoUmBDwG6w6ZNR" target="_blank"><button class="btn_data">
+                <i class="fa fa-download"></i>
+                 Data censal | <code>.rds</code> | 2012
+            </button></a> 
+            <a href="https://drive.google.com/uc?export=download&id=1OJfO2Bq9zHDxtz_B_3Cm7PA00xe9wvnG" target="_blank"><button class="btn_data">
+                <i class="fa fa-download"></i>
+                 Data censal | <code>.rds</code> | 2002
+            </button></a> 
+            <a href="https://drive.google.com/uc?export=download&id=1pHRqaJJ6lf1EYQ4lsIhbl8yC_vX5jOfX" target="_blank"><button class="btn_data">
+                <i class="fa fa-download"></i>
+                 Data censal | <code>.rds</code> | 1992
+            </button></a> 
+            <a href="https://drive.google.com/uc?export=download&id=1vvl6cG0J21TTKRyn2pr11lKrnZzkz_or" target="_blank"><button class="btn_data">
+                <i class="fa fa-download"></i>
+                 Data censal | <code>.rds</code> | 1982
+            </button></a> 
+            <a href="https://drive.google.com/uc?export=download&id=1x4yau89v98VcDMqwTOx21c4AppKz-dm7" target="_blank"><button class="btn">
+                <i class="fa fa-download"></i>
+                 Cobertura geográfica | <code>.shp</code> | 2017
+            </button></a> 
+            <a href="https://drive.google.com/uc?export=download&id=1e74kQdiyWCGSgWFgqlDZPZQfEKxEAHzV" target="_blank"><button class="btn">
+                <i class="fa fa-download"></i>
+                 Cobertura geográfica | <code>.shp</code> | 2012
+            </button></a> 
+            <a href="https://drive.google.com/uc?export=download&id=1zp_4FTAg6YdcBp8jwWTt4sVT3jPCOLOf" target="_blank"><button class="btn">
+                <i class="fa fa-download"></i>
+                 Cobertura geográfica | <code>.shp</code> | 2002
+            </button></a> 
+            <h3>Descarga de resultados</h3>
+            <a href="https://drive.google.com/uc?export=download&id=1nj7KgaLf6P8YtrLz-KLk6ymuwDlyFgO4" target="_blank"><button class="btn">
+                <i class="fa fa-download"></i>
+                 Tarapacá | <code>.shp</code> | 2017
+            </button></a>
+            <a href="https://drive.google.com/uc?export=download&id=1PFno_zgKu8yswnhIHi0PYRZMJhWM67v7" target="_blank"><button class="btn">
+                <i class="fa fa-download"></i>
+                 Antofagasta | <code>.shp</code> | 2017
+            </button></a> 
+            <a href="https://drive.google.com/uc?export=download&id=1Vp4iRIGkSit53BDdV_C4YMSLw32P7fuf" target="_blank"><button class="btn">
+                <i class="fa fa-download"></i>
+                 Atacama | <code>.shp</code> | 2017
+            </button></a> 
+            <a href="https://drive.google.com/uc?export=download&id=1FTbSMT1BQaJngIfEqb9w7wWifgJbSVFL" target="_blank"><button class="btn">
+                <i class="fa fa-download"></i>
+                 Coquimbo | <code>.shp</code> | 2017
+            </button></a> 
+            <a href="https://drive.google.com/uc?export=download&id=1Drkfm9_qZSVJl6OU3KpSKcuyWgP2pDXr" target="_blank"><button class="btn">
+                <i class="fa fa-download"></i>
+                 Valparaíso | <code>.shp</code> | 2017
+            </button></a> 
+            <a href="https://drive.google.com/uc?export=download&id=11weqtJiqUwQ-vXc1U6bcCU-80RgAGd9M" target="_blank"><button class="btn">
+                <i class="fa fa-download"></i>
+                 O'Higgins | <code>.shp</code> | 2017
+            </button></a> 
+            <a href="https://drive.google.com/uc?export=download&id=1pOn5D3cc7gWv9OjtCF9YMc87Tg7gdPQQ" target="_blank"><button class="btn">
+                <i class="fa fa-download"></i>
+                 Maule | <code>.shp</code> | 2017
+            </button></a> 
+            <a href="https://drive.google.com/uc?export=download&id=1Xx9K0KtiASpM-t_6Hl4vi_zH-nPzPaUt" target="_blank"><button class="btn">
+                <i class="fa fa-download"></i>
+                 Bío-Bío | <code>.shp</code> | 2017
+            </button></a>
+            <a href="https://drive.google.com/uc?export=download&id=1KN_gZfp85slyLWsCSHqR_MUb4V9jAmB0" target="_blank"><button class="btn">
+                <i class="fa fa-download"></i>
+                 Araucanía | <code>.shp</code> | 2017
+            </button></a>
+            <a href="https://drive.google.com/uc?export=download&id=1xZlIXMtA-x-Pl_SkCvq1AOnklgoewriI" target="_blank"><button class="btn">
+                <i class="fa fa-download"></i>
+                 Los Lagos | <code>.shp</code> | 2017
+            </button></a>
+            <a href="https://drive.google.com/uc?export=download&id=16zteNrGrbJrsWZ9oFmaAvIssWZc_lOtA" target="_blank"><button class="btn">
+                <i class="fa fa-download"></i>
+                 Aysén | <code>.shp</code> | 2017
+            </button></a>
+            <a href="https://drive.google.com/uc?export=download&id=10clShgWxWvd_Zu0eW0TON721JmE0fO2q" target="_blank"><button class="btn">
+                <i class="fa fa-download"></i>
+                 Magallanes | <code>.shp</code> | 2017
+            </button></a>
+            <a href="https://drive.google.com/uc?export=download&id=1s_KWDjAjMvXZZqZmq3ZbxA5hIHuSifS4" target="_blank"><button class="btn">
+                <i class="fa fa-download"></i>
+                 Metropolitana | <code>.shp</code> | 2017
+            </button></a>
+            <a href="https://drive.google.com/uc?export=download&id=10QpX9zNcVmlNbII-ypd8xhqeKL_qLLH6" target="_blank"><button class="btn">
+                <i class="fa fa-download"></i>
+                 Los Ríos | <code>.shp</code> | 2017
+            </button></a>
+            <a href="https://drive.google.com/uc?export=download&id=1lKfBJ8rVaFjM2pe0nmERiEkjQOooVO4w" target="_blank"><button class="btn">
+                <i class="fa fa-download"></i>
+                 Arica y Parinacota | <code>.shp</code> | 2017
+            </button></a>
+            <a href="https://drive.google.com/uc?export=download&id=1jUbscDwMiBVUxAe1vi-GVUgtLECvADqT" target="_blank"><button class="btn">
+                <i class="fa fa-download"></i>
+                 Ñuble | <code>.shp</code> | 2017
+            </button></a>
+            <a href="https://drive.google.com/uc?export=download&id=1q9qTHQOZaVcMKGGA4mVA-pvOtIjmsqNF" target="_blank"><button class="btn_data">
+                <i class="fa fa-download"></i>
+                 Tarapacá | <code>.csv</code> | 2017
+            </button></a>
+            <a href="https://drive.google.com/uc?export=download&id=18JTe63p_QSafp_ns9oYBtSJkYwuI3T_5" target="_blank"><button class="btn_data">
+                <i class="fa fa-download"></i>
+                 Antofagasta | <code>.csv</code> | 2017
+            </button></a>
+            <a href="https://drive.google.com/uc?export=download&id=14mpX9fY28eShgEkzRg1eyxTt3-E2Es_k" target="_blank"><button class="btn_data">
+                <i class="fa fa-download"></i>
+                 Atacama | <code>.csv</code> | 2017
+            </button></a>
+            <a href="https://drive.google.com/uc?export=download&id=1arFvzpDAGS2U-rB5AdVnjW5k8nH_mdKj" target="_blank"><button class="btn_data">
+                <i class="fa fa-download"></i>
+                 Coquimbo | <code>.csv</code> | 2017
+            </button></a>
+            <a href="https://drive.google.com/uc?export=download&id=1Ef4pVBjQepIpypeb2nb5mRNLISnmsK38" target="_blank"><button class="btn_data">
+                <i class="fa fa-download"></i>
+                 Valparaíso | <code>.csv</code> | 2017
+            </button></a>
+            <a href="https://drive.google.com/uc?export=download&id=15Z3Wy2-w5ToLiPlCGMplefp4YAkEacai" target="_blank"><button class="btn_data">
+                <i class="fa fa-download"></i>
+                 O'Higgins | <code>.csv</code> | 2017
+            </button></a>
+            <a href="https://drive.google.com/uc?export=download&id=1RQ6F897czTs6ToP5tYOIL4SjMxwlwNfb" target="_blank"><button class="btn_data">
+                <i class="fa fa-download"></i>
+                 Maule | <code>.csv</code> | 2017
+            </button></a>
+            <a href="https://drive.google.com/uc?export=download&id=1A70DD04HgfylL19EGqCBtDBaOOk8t_yI" target="_blank"><button class="btn_data">
+                <i class="fa fa-download"></i>
+                 Bío-Bío | <code>.csv</code> | 2017
+            </button></a>
+            <a href="https://drive.google.com/uc?export=download&id=1DTcuQ8MA3UokTeH5jCrfkdLlWRvLZ6m8" target="_blank"><button class="btn_data">
+                <i class="fa fa-download"></i>
+                 Araucanía | <code>.csv</code> | 2017
+            </button></a>
+            <a href="https://drive.google.com/uc?export=download&id=1CTYNX8FvqZBKYvzFiJsSnGdesy8tvb5s" target="_blank"><button class="btn_data">
+                <i class="fa fa-download"></i>
+                 Los Lagos | <code>.csv</code> | 2017
+            </button></a>
+            <a href="https://drive.google.com/uc?export=download&id=1rUtrSaaMr2KyCBohUqh8xoRKbEGXcT93" target="_blank"><button class="btn_data">
+                <i class="fa fa-download"></i>
+                 Aysén | <code>.csv</code> | 2017
+            </button></a>
+            <a href="https://drive.google.com/uc?export=download&id=1H8luVnmFASKb1sQ4ioFznuAIq2zB5YwW" target="_blank"><button class="btn_data">
+                <i class="fa fa-download"></i>
+                 Magallanes | <code>.csv</code> | 2017
+            </button></a>
+            <a href="https://drive.google.com/uc?export=download&id=11XouiFkCPz15QnETV5Ex0zDGB6916-5V" target="_blank"><button class="btn_data">
+                <i class="fa fa-download"></i>
+                 Metropolitana | <code>.csv</code> | 2017
+            </button></a>
+            <a href="https://drive.google.com/uc?export=download&id=1GJGNx1g-v7S5GfbMKliwbD0FfuQNKbTY" target="_blank"><button class="btn_data">
+                <i class="fa fa-download"></i>
+                 Los Ríos | <code>.csv</code> | 2017
+            </button></a>
+            <a href="https://drive.google.com/uc?export=download&id=1S9WmoolTHSuxcTlY5zWQwL8uIMq9Bywj" target="_blank"><button class="btn_data">
+                <i class="fa fa-download"></i>
+                 Arica y Parinacota | <code>.csv</code> | 2017
+            </button></a>
+            <a href="https://drive.google.com/uc?export=download&id=1nlnMt5BqWClO8RMyftgPUCxVXr4rptHZ" target="_blank"><button class="btn_data">
+                <i class="fa fa-download"></i>
+                 Ñuble | <code>.csv</code> | 2017
+            </button></a>
+        </div>
+    </div>
+</body>
