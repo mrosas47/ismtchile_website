@@ -69,42 +69,6 @@ a:hover {
     display: none;
 }
 
-/*#installdiv, #flowdiv, #limitsdiv, #resultsdiv, #metadatadiv, #filesdiv, #authorsdiv {
-    display: none;
-}*/
-
-#presentationdiv:target {
-    display: block;
-}
-
-#installdiv:target {
-    display: block;
-}
-
-#flowdiv:target {
-    display: block;
-}
-
-#limitsdiv:target {
-    display: block;
-}
-
-#resultsdiv:target {
-    display: block;
-}
-
-#metadatadiv:target {
-    display: block;
-}
-
-#filesdiv:target {
-    display: block;
-}
-
-#authorsdiv:target {
-    display: block;
-}
-
 body {
     width: 65%;
     text-align: justify;
