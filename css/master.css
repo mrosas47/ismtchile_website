@@ -42,6 +42,8 @@ a:hover {
     background-color: #136a6a;
     overflow: hidden;
     border-radius: 10px;
+    position: sticky;
+    top:0;
 }
 
 #topnav a {
@@ -53,12 +55,14 @@ a:hover {
     text-decoration: none;
     font-size: 17px;
     border-radius: 10px;
-    margin-left: 5px; margin-right: 5px;
+    margin-left: auto;
+    margin-right: auto;
 }
 
 #topnav a:hover {
     background-color: aquamarine;
     color: #006644;
+    transition: background-color 0.75s ease;
 }
 
 #topnav .icon {
@@ -201,6 +205,7 @@ small {
 
 .btn:hover {
     background-color: #7a94d1;
+    transition: background-color 0.75s ease;
 }
 
 .btn_data {
@@ -217,6 +222,7 @@ small {
 
 .btn_data:hover {
     background-color: #3edada;
+    transition: background-color 0.75s ease;
 }
 
 .btn_code {
@@ -233,6 +239,7 @@ small {
 
 .btn_code:hover {
     background-color: #565d5d;
+    transition: background-color 0.75s ease;
 }
 
 /* Slideshow 
