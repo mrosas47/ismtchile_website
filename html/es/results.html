@@ -10,7 +10,7 @@
     <!---<script src="./js/lightbox.js"></script>--->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
     <script src="../../js/topnav.js"></script>
-    <script src="../../js/clicks.js"></script>
+    <!---<script src="../../js/clicks.js"></script>--->
 </head>
 <body>
     <div id="content">
@@ -19,7 +19,7 @@
         </div>
         <h1>R package <code>ismtchile::</code></h1>
         <div id="topnav" class="topnav">
-            <a href="home.html" target="_self">
+            <p id="maybe"><a href="home.html" target="_self">
                 <i class="fa fa-home"></i>
                 Inicio
             </a>
@@ -57,7 +57,7 @@
             </a>
             <a href="javascript:void(0);" class="icon" onclick="myFunction()">
                 <i class="fa fa-bars"></i>
-            </a>
+            </a></p>
         </div>
         <div id="resultsdiv">
             <p id="results">
@@ -66,96 +66,6 @@
                 <div class="embed-container">
                     <iframe width="95%" height="750px" frameborder="0" scrolling="no" marginheight="0" marginwidth="0" title="ismt_results" src="https://ocuc.maps.arcgis.com/apps/webappviewer/index.html?id=6ad3e8a569cc4353ac95c037b0e8dff1"></iframe>
                 </div>
-                <br>
-                <!---<div class="row">
-                    <div class="column">
-                      <img src="https://drive.google.com/uc?export=view&id=1W4LT8sbHPxSIIYcczl50HXxAq7Eq2Ptw" onclick="openModal();currentSlide(1)" class="hover-shadow">
-                    </div>
-                    <div class="column">
-                      <img src="https://drive.google.com/uc?export=view&id=11yEKvtKPa6LHj8xzIYW5BqXrlb0lA76_" onclick="openModal();currentSlide(2)" class="hover-shadow">
-                    </div>
-                    <div class="column">
-                      <img src="https://drive.google.com/uc?export=view&id=1jeIx7b5Dbwa1ZgvTkyKCpJmatGIsNRpF" onclick="openModal();currentSlide(3)" class="hover-shadow">
-                    </div>
-                    <div class="column">
-                      <img src="https://drive.google.com/uc?export=view&id=1bX3042sVEoNd74qikTXgDAul0LblfVYE" onclick="openModal();currentSlide(4)" class="hover-shadow">
-                    </div>
-                </div>
-                <div id="lightbox" class="modal">
-                    <span class="close cursor">&times;</span>
-                    <div class="modal_content">
-                        <div class="slides">
-                            <div class="numbertext">1/4</div>
-                            <img src="https://drive.google.com/uc?export=view&id=1W4LT8sbHPxSIIYcczl50HXxAq7Eq2Ptw" alt="sample map 1" style="width:100%">
-                        </div>
-                        <div class="slides">
-                            <div class="numbertext">2/4</div>
-                            <img src="https://drive.google.com/uc?export=view&id=11yEKvtKPa6LHj8xzIYW5BqXrlb0lA76_" alt="sample map 2" style="width:100%">
-                        </div>
-                        <div class="slides">
-                            <div class="numbertext">3/4</div>
-                            <img src="https://drive.google.com/uc?export=view&id=1jeIx7b5Dbwa1ZgvTkyKCpJmatGIsNRpF" alt="sample map 3" style="width:100%">
-                        </div>
-                        <div class="slides">
-                            <div class="numbertext">4/4</div>
-                            <img src="https://drive.google.com/uc?export=view&id=1bX3042sVEoNd74qikTXgDAul0LblfVYE" alt="sample map 4" style="width:100%">
-                        </div>
-                        <a class="prev" onclick="plusSlides(-1)">&#10094;</a>
-                        <a class="next" onclick="plusSlides(1)">&#10095;</a>
-                        <div class="caption-container">
-                            <p id="caption"></p>
-                        </div>
-                        <div class="column">
-                            <img class="demo" src="https://drive.google.com/uc?export=view&id=1W4LT8sbHPxSIIYcczl50HXxAq7Eq2Ptw" onclick="currentSlide(1)" alt="R05">
-                        </div>
-                        <div class="column">
-                            <img class="demo" src="https://drive.google.com/uc?export=view&id=11yEKvtKPa6LHj8xzIYW5BqXrlb0lA76_" onclick="currentSlide(2)" alt="R08">
-                        </div>
-                        <div class="column">
-                            <img class="demo" src="https://drive.google.com/uc?export=view&id=1jeIx7b5Dbwa1ZgvTkyKCpJmatGIsNRpF" onclick="currentSlide(3)" alt="R08">
-                        </div>
-                        <div class="column">
-                            <img class="demo" src="https://drive.google.com/uc?export=view&id=1bX3042sVEoNd74qikTXgDAul0LblfVYE" onclick="currentSlide(4)" alt="R08">
-                        </div>
-                    </div>
-                </div>--->
-                <!---<div id="slideshow_container">
-                    <div class="slides fade">
-                        <div class="numbertext">
-                            1/3
-                        </div>
-                        <img src="https://drive.google.com/uc?export=view&id=1W4LT8sbHPxSIIYcczl50HXxAq7Eq2Ptw" alt="sample map 1" style="width: 100%;">
-                        <div class="text">
-                            sample map 1
-                        </div>
-                    </div>
-                    <div class="slides fade">
-                        <div class="numbertext">
-                            2/3
-                        </div>
-                        <img src="https://drive.google.com/uc?export=view&id=11yEKvtKPa6LHj8xzIYW5BqXrlb0lA76_" alt="sample map 1" style="width: 100%;">
-                        <div class="text">
-                            sample map 2
-                        </div>
-                    </div>
-                    <div class="slides fade">
-                        <div class="numbertext">
-                            3/3
-                        </div>
-                        <img src="https://drive.google.com/uc?export=view&id=1jeIx7b5Dbwa1ZgvTkyKCpJmatGIsNRpF" alt="sample map 1" style="width: 100%;">
-                        <div class="text">
-                            sample map 3
-                        </div>
-                    </div>
-                    <a class="prev" onclick="plusSlides(-1)">&#10094;</a>
-                    <a class="next" onclick="plusSlides(1)">&#10095;</a>
-                    <br>
-                    <div style="text-align: center;">
-                        <span class="dot" onclick="currentSlide(1)"></span>
-                        <span class="dot" onclick="currentSlide(2)"></span>
-                        <span class="dot" onclick="currentSlide(3)"></span>
-                    </div>
-                </div>--->
                 <br>
                 <br>
             </p>
