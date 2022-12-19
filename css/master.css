@@ -9,10 +9,6 @@ html {
     height: 1000px;
 }
 
-header {
-    vertical-align: middle;
-}
-
 #logos {
     margin-left: auto;
     margin-right: auto;
@@ -20,6 +16,13 @@ header {
     max-width: 90%;
     max-height: 100%;
     text-align: center;
+}
+
+#logos img {
+    max-width: 100%;
+    max-height: 90%;
+    margin-top: auto;
+    margin-bottom: auto;
 }
 
 h1 {
@@ -38,34 +41,32 @@ a:hover {
     color: #1d9696;
 }
 
-#topnav {
+#bar {
+    position: sticky;
+    top: 0;
+    z-index: 999;
+    color: #f2f2f2;
+    border-radius: 10px;
+    text-align-last: justify;
     background-color: #136a6a;
     overflow: hidden;
-    border-radius: 10px;
-    position: sticky;
-    top:0;
-    z-index: 999;
 }
 
-#topnav a {
-    float: left;
-    display: inline-block;
+nav a {
     color: #f2f2f2;
     text-align: center;
+    display: inline-block;
+    max-height: 100%;
     padding: 14px 16px;
-    text-decoration: none;
-    border-radius: 10px;
-    margin-left: 0.53%;
-    margin-right: 0.53%;
 }
 
-#topnav a:hover {
+nav a:hover {
     background-color: aquamarine;
     color: #006644;
     transition: background-color 0.75s ease;
 }
 
-#topnav .icon {
+nav .icon {
     display: none;
 }
 
@@ -206,25 +207,27 @@ small {
     transition: background-color 0.75s ease;
 }
 
-@media screen and (max-width: 1919px) {
-    #topnav a:not(:first-child) {display: none;}
-    #topnav a.icon {
+@media screen and (max-width: 1830px) {
+    #bar a:not(:first-child) {display: none;}
+    #bar a.icon {
       float: right;
       display: block;
     }
 }
 
-@media screen and (max-width: 1919px) {
-    #topnav.responsive {position: sticky; top: 0;}
-    #topnav.responsive .icon {
+@media screen and (max-width: 1830px) {
+    #bar.responsive {position: sticky; top: 0;}
+    #bar.responsive .icon {
       position: absolute;
       right: 0;
       top: 0;
     }
-    #topnav.responsive a {
+    #bar.responsive a {
       float: none;
-      display: block;
+      display: flex;
       text-align: left;
     }
+    #bar.responsive .fa {
+        margin-right: 7px;
+    }
 }
-

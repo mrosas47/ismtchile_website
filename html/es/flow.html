@@ -18,46 +18,48 @@
             <a href="home.html"><img src="https://drive.google.com/uc?export=view&id=14Z67_ZlIVG8KcCJXSzW271EYbILOAX6s" alt="logos" id="Logo OCUC, logo DIMES y logo paquete ismtchile::"></a>
         </div>
         <h1>R package <code>ismtchile::</code></h1>
-        <div id="topnav" class="topnav">
-            <a href="home.html" target="_self">
-                <i class="fa fa-home"></i>
-                Inicio
-            </a>
-            <a href="presentation.html" target="_self">
-                <i class="fa fa-vcard"></i>
-                Presentación
-            </a>
-            <a href="install.html" target="_self">
-                <i class="fa fa-terminal"></i>
-                Instalación
-            </a>
-            <a href="flow.html" target="_self">
-                <i class="fa fa-code-fork"></i>
-                Flujo de trabajo
-            </a>
-            <a href="limits.html" target="_self">
-                <i class="fa fa-exclamation-triangle"></i>
-                Limitaciones
-            </a>
-            <a href="results.html" target="_self">
-                <i class="fa fa-map-o"></i>    
-                Resultados
-            </a>
-            <a href="metadata.html" target="_self">
-                <i class="fa fa-info-circle"></i>    
-                Metadata
-            </a>
-            <a href="downloads.html" target="_self">
-                <i class="fa fa-download"></i>    
-                Descargas
-            </a>
-            <a href="authors.html" target="_self">
-                <i class="fa fa-users"></i>
-                Autoría
-            </a>
-            <a href="javascript:void(0);" class="icon" onclick="myFunction()">
-                <i class="fa fa-bars"></i>
-            </a>
+        <div id="bar">
+            <nav>
+                <a href="home.html" target="_self">
+                    <i class="fa fa-home"></i>
+                    Inicio
+                </a>
+                <a href="presentation.html" target="_self">
+                    <i class="fa fa-vcard"></i>
+                    Presentación
+                </a>
+                <a href="install.html" target="_self">
+                    <i class="fa fa-terminal"></i>
+                    Instalación
+                </a>
+                <a href="flow.html" target="_self">
+                    <i class="fa fa-code-fork"></i>
+                    Flujo de trabajo
+                </a>
+                <a href="limits.html" target="_self">
+                    <i class="fa fa-exclamation-triangle"></i>
+                    Limitaciones
+                </a>
+                <a href="results.html" target="_self">
+                    <i class="fa fa-map-o"></i>    
+                    Resultados
+                </a>
+                <a href="metadata.html" target="_self">
+                    <i class="fa fa-info-circle"></i>    
+                    Metadata
+                </a>
+                <a href="downloads.html" target="_self">
+                    <i class="fa fa-download"></i>    
+                    Descargas
+                </a>
+                <a href="authors.html" target="_self">
+                    <i class="fa fa-users"></i>
+                    Autoría
+                </a>
+                <a href="javascript:void(0);" class="icon" onclick="myFunction()">
+                    <i class="fa fa-bars"></i>
+                </a>
+            </nav>
         </div>
         <div id="flowdiv">
             <p id="flow">
@@ -65,15 +67,15 @@
                 El flujo de trabajo del paquete está pensado para satisfacer la mayor cantidad de necesidades del usuario, desde obtener la data y los shapefiles de origen hasta realizar el cálculo del ISMT paso por paso, dando también la opción de omitir el paso a paso y calcular el índice directamente con 1 sola función.
                 La mejor descripción del flujo se encuentra en la <i>cheatsheet</i> del paquete, disponible para descarga <a href="https://drive.google.com/uc?export=download&id=1awWKN_CpW2ixOPK1WKRavpLUmM6TCqHi" target="_blank">aquí</a>. Este documento, además del flujo, contiene la descripción detallada de los parámetros de cada una de las funciones. <br> <br>
                 <iframe src="https://drive.google.com/uc?export=view&id=1tnaj5VjD7PDT8zwhwsN4mmwPIM4NSJkG" id="pdf" width="95%" height="500px" frameborder="0"></iframe><br>
-                Se puede categorizar el flujo en 4 tipos de funciones:
+                Se puede categorizar el flujo en 3 tipos de funciones:
                 <ul id="function_types">
-                    <li><strong>Descarga</strong></li>
+                    <!---<li><strong>Descarga</strong></li>
                         <ul id="download">
                             <li><code class="function">load_data()</code> : descarga la base de datos original del Censo 2017 de Chile a <code>path</code> y la carga a RStudio, quedando lista para su uso. Cada llamada a la función descarga un archivo, por lo que se debe usar una vez. Para acceder a los datos posteriormente, ver <code><a href="https://www.rdocumentation.org/packages/utils/versions/3.6.2/topics/read.table" target="_blank">utils::read.csv()</a></code> y <code><a href="https://www.rdocumentation.org/packages/base/versions/3.6.2/topics/readRDS" target="_blank">base::readRDS()</a></code>.</li>
                             <li><code class="function">load_shp()</code> : descarga ESRI shapefile de la región especificada a <code>path</code> y lo carga a RStudio.</li>
                             <li><code class="function">spawn_AIMcuts()</code> : función que no recibe parámetros, solo define un <code>data.frame</code> de referencia que contiene los cortes estadísticos AIM por región, actualizados al 2021.</li> <br>
                             <blockquote>Las funciones de descarga desaparecerán del paquete para las versiones <code>3.x.x</code> para incluir los datasets en el paquete mismo a través de <code><a href="https://www.rdocumentation.org/packages/utils/versions/3.6.2/topics/data" target="_blank">utils::data()</a></code>.</blockquote> 
-                        </ul><br>
+                        </ul><br>--->
                     <li><strong>Preparación</strong></li>
                         <ul id="prep">
                             <li><code class="function">literalize()</code> : revierte la factorización de las variables censales, homologando nombres de variables y categorías entre los distintos censos.</li>
