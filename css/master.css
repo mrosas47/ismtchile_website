@@ -149,7 +149,7 @@ small {
 }
 
 .downloads {
-    text-align: center;
+    text-align: left;
 }
 
 .downloads h3 {
@@ -215,7 +215,7 @@ small {
     }
 }
 
-@media screen and (max-width: 1830px) {
+@media screen and (max-width: 1995px) {
     #bar.responsive {position: sticky; top: 0;}
     #bar.responsive .icon {
       position: absolute;
