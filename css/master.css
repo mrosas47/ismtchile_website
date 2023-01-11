@@ -15,7 +15,7 @@
 
 
 html {
-    font-family: 'Futura Lt Bt', 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    font-family: 'Futura Lt Bt', 'Segoe UI', 'Tahoma', 'Geneva', 'Verdana', sans-serif;
     background-image: url(https://drive.google.com/uc?export=view&id=1OJCiQtT8hRXn6k3yBAJ0mmrtQMKrKe2S);
     color: snow;
     background-attachment: fixed;
@@ -29,7 +29,7 @@ html {
     margin-left: auto;
     margin-right: auto;
     display: block;
-    max-width: 40%;
+    max-width: 30%;
     /*max-height: 50%;*/
     margin-top: 30px;
 }
@@ -76,7 +76,9 @@ nav a {
     text-align: center;
     display: inline-block;
     max-height: 100%;
-    padding: 14px 16px;
+    padding: 14px;
+    max-width: 100%;
+    max-height: 100%;
 }
 
 nav a:hover {
@@ -122,7 +124,7 @@ pre {
     padding-top: 1px;
 }
 
-#homediv, #installdiv, #flowdiv, #limitsdiv, #resultsdiv, #metadiv, #downloadsdiv, #authorsdiv {
+#homediv, #installdiv, #flowdiv, #limitsdiv, #resultsdiv, #metadiv, #filesdiv, #authorsdiv, #methoddiv {
     width: 90%;
     text-align: justify;
     margin-left: auto;
@@ -249,3 +251,14 @@ h4 {
         margin-right: 7px;
     }
 }
+
+table {
+    text-align: center;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+td {
+    padding: 5px 15px;
+}
+

@@ -14,20 +14,17 @@
 </head>
 <body>
     <div id="content">
-        <div id="logos">
-            <a href="home.html"><img src="https://drive.google.com/uc?export=view&id=14Z67_ZlIVG8KcCJXSzW271EYbILOAX6s" alt="logos" id="Logo OCUC, logo DIMES y logo paquete ismtchile::"></a>
-        </div>
         <h1>R package <code>ismtchile::</code></h1>
         <div id="bar">
             <nav>
                 <a href="home.html" target="_self">
                     <i class="fa fa-home"></i>
                     Inicio
-                </a>
-                <a href="presentation.html" target="_self">
-                    <i class="fa fa-vcard"></i>
-                    Presentación
-                </a>
+                </a>  
+                <a href="method.html" target="_self">
+                    <i class="fa fa-file-text-o"></i>
+                    Metodología
+                </a>                   
                 <a href="install.html" target="_self">
                     <i class="fa fa-terminal"></i>
                     Instalación
@@ -56,7 +53,7 @@
                     <i class="fa fa-users"></i>
                     Autoría
                 </a>
-                <a href="javascript:void(0);" class="icon" onclick="myFunction()">
+                <a href="javascript:void(0);" class="icon" onclick="changeClass()">
                     <i class="fa fa-bars"></i>
                 </a>
             </nav>
@@ -89,15 +86,18 @@
                             <li><code class="function">ismt_scores()</code> : ejecuta los cálculos finales de ISMT, que consisten en categorizar los grupos socioeconómicos en base a los cortes estadísticos AIM y agrupa los resultados por la unidad territorial especificada.</li>
                             <li><code class="function">full_ismt()</code> : ejecuta el cálculo completo del ISMT. Agrupa las funciones <code>literalize()</code>, <code>geofilter()</code>, <code>cleanup()</code>, <code>precalc()</code>, <code>get_pca()</code> e <code>ismt_scores()</code>. La tabla obtenida debería ser idéntica al resultado de concatenar estas funciones una a una (incluyendo compatibilidad con <a href="https://www.rdocumentation.org/packages/magrittr/versions/2.0.3" target="_blank"><code>magrittr::`%>%`</code></a>). Al incorporar varias funciones, recibe todos los parámetros posibles para la correcta ejecución del flujo.</li>
                         </ul><br>
-                    <li><strong>Exportación</strong></li>
+                    <!---<li><strong>Exportación</strong></li>
                         <ul id="export">
                             <li><code>data_export()</code> : exporta datos resultantes de la ejecución del cálculo del ISMT a la carpeta especificada.</li>
                             <li><code>geomerge()</code> : espacializa la data obtenida del cálculo del ISMT mediante la unión con un shapefile de la unidad espacial correspondiente.</li>
                             <li><code>geoexport()</code> : exporta la data espacial derivada del cálculo del ISMT y posterior ejecución de <code>geomerge()</code> para espacializar.</li>
-                        </ul>
+                        </ul>--->
                 </ul>
                 Siguiendo la lógica de este flujo, un ejemplo de uso podría verse así: <br> <pre><code># remotes::install_github(mrosas47/ismtchile)<br><br>library(ismtchile)<br><br>censo17 <- load_data(r = 13, path = 'C:/Downloads')<br><br>shp_r13 <- load_shp(r = 13, ur = 1, path = 'C:/Downloads')<br><br>ismt <- full_ismt(censo17, r = 13, ur = 1)<br><br>geodata <- geomerge(df = censo17, shp = shp_r13)<br><br>geoexport(geodata, r = 13, path = 'C:/Downloads')</code></pre>
             </p>
+        </div>
+        <div id="logos">
+            <a href="home.html"><img src="https://drive.google.com/uc?export=view&id=14Z67_ZlIVG8KcCJXSzW271EYbILOAX6s" alt="logos" id="Logo OCUC, logo DIMES y logo paquete ismtchile::"></a>
         </div>
     </div>
 </body>
