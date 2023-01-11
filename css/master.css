@@ -1,6 +1,22 @@
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 html {
     font-family: 'Futura Lt Bt', 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-    background-image: url(https://drive.google.com/uc?export=view&id=194Kd_tXrjIKnA07R9yyIqb6PeHwZOer1);
+    background-image: url(https://drive.google.com/uc?export=view&id=1OJCiQtT8hRXn6k3yBAJ0mmrtQMKrKe2S);
     color: snow;
     background-attachment: fixed;
     background-size: cover;
@@ -13,9 +29,9 @@ html {
     margin-left: auto;
     margin-right: auto;
     display: block;
-    max-width: 90%;
-    max-height: 100%;
-    text-align: center;
+    max-width: 40%;
+    /*max-height: 50%;*/
+    margin-top: 30px;
 }
 
 #logos img {
@@ -50,6 +66,9 @@ a:hover {
     text-align-last: justify;
     background-color: #136a6a;
     overflow: hidden;
+    max-width: 90%;
+    margin-left: auto;
+    margin-right: auto;
 }
 
 nav a {
@@ -71,11 +90,11 @@ nav .icon {
 }
 
 body {
-    width: 65%;
+    width: 85%;
     text-align: justify;
     /*display: inline-block;*/
-    margin-left: 17.5%;
-    margin-right: 17.5%;
+    margin-left: auto;
+    margin-right: auto;
 }
 
 code {
@@ -101,7 +120,13 @@ pre {
     padding-right: 10px;
     padding-bottom: 15px;
     padding-top: 1px;
-    border-radius: 30px;
+}
+
+#homediv, #installdiv, #flowdiv, #limitsdiv, #resultsdiv, #metadiv, #downloadsdiv, #authorsdiv {
+    width: 90%;
+    text-align: justify;
+    margin-left: auto;
+    margin-right: auto;
 }
 
 h4 {
@@ -140,13 +165,6 @@ h4 {
     width: 100%; 
     height: 100%;
 } 
-
-small {
-    position: absolute; 
-    z-index: 40; 
-    bottom: 0; 
-    margin-bottom: -15px;
-}
 
 .downloads {
     text-align: left;
